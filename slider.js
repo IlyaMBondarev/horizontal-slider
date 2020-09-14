@@ -4,7 +4,6 @@ let slidersForCards = document.querySelectorAll('.slider_for_cards');
 slidersForCards.forEach(slider => {
     let visibleWidthOfSlider = clientWidth - slider.offsetLeft;
     let rightBorderOfSlider = Math.floor(visibleWidthOfSlider / 600) - 1;
-    console.log(visibleWidthOfSlider);
     let cardsContainer = slider.querySelector('.project_card_containers');
     let cards = cardsContainer.querySelectorAll('.project_card_items');
     let indexOfActiveYear = 0;
