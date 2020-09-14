@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="horizontal-sliders.css">
+</head>
+
+<body>
+    <style>
+        body {
+            margin: 100px;
+        }
+        
+        * {
+            margin: 0;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        .link_years {
+            order: 1;
+            display: block;
+            width: 90px;
+            height: 60px;
+            cursor: pointer;
+            background: #F5F8FB;
+            border-radius: 0px;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 150%;
+            color: #1C1B1D;
+            margin: 0;
+            margin-right: 10px !important;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .link_years:hover {
+            border: 1px solid #CC0A0A;
+            width: 88px;
+            height: 58px;
+        }
+        
+        .active_years {
+            background: #CC0A0A;
+            border-radius: 0px;
+            color: white;
+        }
+        
+        .slider_btn_containers {
+            display: flex;
+        }
+        
+        .btn_slider_style_prev {
+            width: 50px;
+            height: 50px;
+            border: 1px solid rgba(28, 27, 29, 0.7);
+            box-sizing: border-box;
+            background-image: url(Vector_l.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        
+        .btn_slider_style_next {
+            width: 50px;
+            height: 50px;
+            border: 1px solid rgba(28, 27, 29, 0.7);
+            box-sizing: border-box;
+            background-image: url(Vector_R.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+            cursor: pointer;
+        }
+        
+        .btn_slider_style_prev:hover {
+            background: #CC0A0A;
+            border: 0px solid rgba(28, 27, 29, 0.7);
+            background-image: url(Vector_l_h.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .btn_slider_style_next:hover {
+            background: #CC0A0A;
+            border: 0px solid rgba(28, 27, 29, 0.7);
+            background-image: url(Vector_r_h.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .project_card_items {
+            width: 570px;
+            height: 360px;
+            background: #F5F8FB;
+        }
+        
+        .project_card_containers {
+            display: flex;
+        }
+        
+        .project_card_items_img {
+            display: none;
+        }
+        
+        .project_card_content_container {
+            padding: 40px;
+        }
+        
+        .swiper_card_title {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 150%;
+            /* identical to box height, or 30px */
+            /* black */
+            color: #1C1B1D;
+            padding-bottom: 30px;
+        }
+        
+        .project_card_content_title {
+            display: flex;
+            align-items: baseline;
+            padding-bottom: 10px;
+        }
+        
+        .project_card_content_title_img_off {
+            display: none;
+        }
+        
+        .project_card_content_title_abr {
+            font-style: normal;
+            font-weight: 800;
+            font-size: 14px;
+            line-height: 150%;
+            /* identical to box height, or 21px */
+            /* red */
+            color: #CC0A0A;
+        }
+        
+        .project_card_content_title_img_on,
+        .project_card_content_title_img_off {
+            padding: 0 30px;
+        }
+        
+        .project_card_items_btns_download_off,
+        .project_card_items_btns_photo_off {
+            display: none;
+        }
+        
+        .project_card_items {
+            margin-right: 30px;
+        }
+        
+        .project_card_items_btns_download {
+            background: #FFFFFF;
+            /* gray */
+            border: 1px solid #F5F8FB;
+            border-radius: 0px;
+            padding: 20px;
+        }
+        
+        .project_card_items_btns_photo {
+            background: #FFFFFF;
+            /* gray */
+            border: 1px solid #F5F8FB;
+            border-radius: 0px;
+            padding: 20px;
+        }
+        
+        .project_card_items_btns {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+    <div class="slider_for_cards">
+        <div class="slider_containers_links_years">
+            Years btn
+            <a href="#" class="link_years active_years">2020</a>
+            <a href="#" class="link_years">2019</a>
+            <a href="#" class="link_years">2018</a>
+            <a href="#" class="link_years">2017</a>
+            <a href="#" class="link_years">2016</a>
+            <a href="#" class="link_years">2015</a>
+        </div>
+        <div class="arrows_nav_slider_items">
+            Slider navidations
+            <div class="slider_btn_containers">
+                <div class="btn_slider_style_prev prev_btn swiper-button-disabled" tabindex="-1" role="button" aria-label="Previous slide" aria-disabled="true"></div>
+                <div class="btn_slider_style_next nex_btn" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false"></div>
+            </div>
+        </div>
+        <!-- <div class="containers_swiper_cards_items_2">
+            <div class="swipercard">
+                <img src="swiper_back_1.jpg" alt="" class="back_img_swiper_items">
+                <div class="container_swiper_card_1">
+                    <p class="swiper_card_title">ООО «ЛУКОЙЛ-Нижегороднефтеоргсинтез»</p>
+                    <div class="slider_swiper_content_items_text">
+                        <p class="slider_swiper_content_items_text_abbr">пд</p>
+                        <img src="capls.svg" alt="" class="img_swiper_content_on">
+                        <img src="caplya.svg" alt="" class="img_swiper_content_off">
+                        <p class="slider_swiper_content_items_text_body">Комплекс переработки нефтяных остатков на ООО «ЛУКОЙЛ Нижегороднефтеоргсинтез» (корректировка ПД на основании разработанной сторонними проектными организациями РД)</p>
+                    </div>
+                    <div class="slider_swiper_content_items_text no_abr">
+                        <img src="capls.svg" alt="" class="img_swiper_content_on">
+                        <img src="caplya.svg" alt="" class="img_swiper_content_off">
+                        <p class="slider_swiper_content_items_text_body">РД Очистка газов разложения установок ВТ-2, АВТ-5, АВТ-6</p>
+                    </div>
+                </div>
+                <div class="card_swiper_btn_hd">
+                    <a class="download_docs">
+                        <img src="download.svg" alt="" class="img_swiper_content_on card_donload">
+                        <img src="download_white.svg" alt="" class="img_swiper_content_off card_donload"> Скачать документ
+                    </a>
+                    <a class="href_foto">
+                        <img src="photo_red.svg" alt="" class="img_swiper_content_on card_donload">
+                        <img src="photo_white.svg" alt="" class="img_swiper_content_off card_donload"> фото
+                    </a>
+                </div>
+            </div>
+        </div> -->
+        card
+        <div class="project_card_containers">
+            <div class="project_card_items" data-year="2020">
+                <img src="swiper_back_1.jpg" alt="" class="project_card_items_img">
+                <div class="project_card_content_container">
+                    <p class="swiper_card_title">ООО «ЛУКОЙЛ-Нижегороднефтеоргсинтез»</p>
+                    <div class="project_card_content_title">
+                        <p class="project_card_content_title_abr">пд</p>
+                        <img src="capls.svg" alt="" class="project_card_content_title_img_on">
+                        <img src="caplya.svg" alt="" class="project_card_content_title_img_off">
+                        <p class="project_card_content_title_body">Комплекс переработки нефтяных остатков на ООО «ЛУКОЙЛ Нижегороднефтеоргсинтез» (корректировка ПД на основании разработанной сторонними проектными организациями РД)</p>
+                    </div>
+                    <div class="project_card_content_title">
+                        <p class="project_card_content_title_abr">пд</p>
+                        <img src="capls.svg" alt="" class="project_card_content_title_img_on">
+                        <img src="caplya.svg" alt="" class="project_card_content_title_img_off">
+                        <p class="project_card_content_title_body">Комплекс переработки нефтяных остатков на ООО «ЛУКОЙЛ Нижегороднефтеоргсинтез» (корректировка ПД на основании разработанной сторонними проектными организациями РД)</p>
+                    </div>
+                </div>
+                <div class="project_card_items_btns">
+                    <a class="project_card_items_btns_download">
+                        <img src="download.svg" alt="" class=" project_card_items_btns_download_on">
+                        <img src="download_white.svg" alt="" class=" project_card_items_btns_download_off"> Скачать документ
+                    </a>
+                    <a class="project_card_items_btns_photo">
+                        <img src="photo_red.svg" alt="" class="project_card_items_btns_photo_on">
+                        <img src="photo_white.svg" alt="" class="project_card_items_btns_photo_off"> фото
+                    </a>
+                </div>
+            </div>
+            <div class="project_card_items" data-year="2020">
+                <img src="swiper_back_1.jpg" alt="" class="project_card_items_img">
+                <div class="project_card_content_container">
+                    <p class="swiper_card_title">ООО «ЛУКОЙЛ-Нижегороднефтеоргсинтез»</p>
+                    <div class="project_card_content_title">
+                        <p class="project_card_content_title_abr">пд</p>
+                        <img src="capls.svg" alt="" class="project_card_content_title_img_on">
+                        <img src="caplya.svg" alt="" class="project_card_content_title_img_off">
+                        <p class="project_card_content_title_body">Комплекс переработки нефтяных остатков на ООО «ЛУКОЙЛ Нижегороднефтеоргсинтез» (корректировка ПД на основании разработанной сторонними проектными организациями РД)</p>
+                    </div>
+                    <div class="project_card_content_title">
+                        <p class="project_card_content_title_abr">пд</p>
+                        <img src="capls.svg" alt="" class="project_card_content_title_img_on">
+                        <img src="caplya.svg" alt="" class="project_card_content_title_img_off">
+                        <p class="project_card_content_title_body">Комплекс переработки нефтяных остатков на ООО «ЛУКОЙЛ Нижегороднефтеоргсинтез» (корректировка ПД на основании разработанной сторонними проектными организациями РД)</p>
+                    </div>
+                </div>
+                <div class="project_card_items_btns">
+                    <a class="project_card_items_btns_download">
+                        <img src="download.svg" alt="" class=" project_card_items_btns_download_on">
+                        <img src="download_white.svg" alt="" class=" project_card_items_btns_download_off"> Скачать документ
+                    </a>
+                    <a class="project_card_items_btns_photo">
+                        <img src="photo_red.svg" alt="" class="project_card_items_btns_photo_on">
+                        <img src="photo_white.svg" alt="" class="project_card_items_btns_photo_off"> фото
+                    </a>
+                </div>
+            </div>
+            <div class="project_card_items" data-year="2020">
+                <img src="swiper_back_1.jpg" alt="" class="project_card_items_img">
+                <div class="project_card_content_container">
+                    <p class="swiper_card_title">ООО «ЛУКОЙЛ-Нижегороднефтеоргсинтез»</p>
+                    <div class="project_card_content_title">
+                        <p class="project_card_content_title_abr">пд</p>
+                        <img src="capls.svg" alt="" class="project_card_content_title_img_on">
+                        <img src="caplya.svg" alt="" class="project_card_content_title_img_off">
+                        <p class="project_card_content_title_body">Комплекс переработки нефтяных остатков на ООО «ЛУКОЙЛ Нижегороднефтеоргсинтез» (корректировка ПД на основании разработанной сторонними проектными организациями РД)</p>
+                    </div>
+                    <div class="project_card_content_title">
+                        <p class="project_card_content_title_abr">пд</p>
+                        <img src="capls.svg" alt="" class="project_card_content_title_img_on">
+                        <img src="caplya.svg" alt="" class="project_card_content_title_img_off">
+                        <p class="project_card_content_title_body">Комплекс переработки нефтяных остатков на ООО «ЛУКОЙЛ Нижегороднефтеоргсинтез» (корректировка ПД на основании разработанной сторонними проектными организациями РД)</p>
+                    </div>
+                </div>
+                <div class="project_card_items_btns">
+                    <a class="project_card_items_btns_download">
+                        <img src="download.svg" alt="" class=" project_card_items_btns_download_on">
+                        <img src="download_white.svg" alt="" class=" project_card_items_btns_download_off"> Скачать документ
+                    </a>
+                    <a class="project_card_items_btns_photo">
+                        <img src="photo_red.svg" alt="" class="project_card_items_btns_photo_on">
+                        <img src="photo_white.svg" alt="" class="project_card_items_btns_photo_off"> фото
+                    </a>
+                </div>
+            </div>
+            <div class="project_card_items" data-year="2019">
+                <img src="swiper_back_1.jpg" alt="" class="project_card_items_img">
+                <div class="project_card_content_container">
+                    <p class="swiper_card_title">ООО «ЛУКОЙЛ-Нижегороднефтеоргсинтез»</p>
+                    <div class="project_card_content_title">
+                        <p class="project_card_content_title_abr">пд</p>
+                        <img src="capls.svg" alt="" class="project_card_content_title_img_on">
+                        <img src="caplya.svg" alt="" class="project_card_content_title_img_off">
+                        <p class="project_card_content_title_body">Комплекс переработки нефтяных остатков на ООО «ЛУКОЙЛ Нижегороднефтеоргсинтез» (корректировка ПД на основании разработанной сторонними проектными организациями РД)</p>
+                    </div>
+                    <div class="project_card_content_title">
+                        <p class="project_card_content_title_abr">пд</p>
+                        <img src="capls.svg" alt="" class="project_card_content_title_img_on">
+                        <img src="caplya.svg" alt="" class="project_card_content_title_img_off">
+                        <p class="project_card_content_title_body">Комплекс переработки нефтяных остатков на ООО «ЛУКОЙЛ Нижегороднефтеоргсинтез» (корректировка ПД на основании разработанной сторонними проектными организациями РД)</p>
+                    </div>
+                </div>
+                <div class="project_card_items_btns">
+                    <a class="project_card_items_btns_download">
+                        <img src="download.svg" alt="" class=" project_card_items_btns_download_on">
+                        <img src="download_white.svg" alt="" class=" project_card_items_btns_download_off"> Скачать документ
+                    </a>
+                    <a class="project_card_items_btns_photo">
+                        <img src="photo_red.svg" alt="" class="project_card_items_btns_photo_on">
+                        <img src="photo_white.svg" alt="" class="project_card_items_btns_photo_off"> фото
+                    </a>
+                </div>
+            </div>
+            <div class="project_card_items" data-year="2019">
+                <img src="swiper_back_1.jpg" alt="" class="project_card_items_img">
+                <div class="project_card_content_container">
+                    <p class="swiper_card_title">ООО «ЛУКОЙЛ-Нижегороднефтеоргсинтез»</p>
+                    <div class="project_card_content_title">
+                        <p class="project_card_content_title_abr">пд</p>
+                        <img src="capls.svg" alt="" class="project_card_content_title_img_on">
+                        <img src="caplya.svg" alt="" class="project_card_content_title_img_off">
+                        <p class="project_card_content_title_body">Комплекс переработки нефтяных остатков на ООО «ЛУКОЙЛ Нижегороднефтеоргсинтез» (корректировка ПД на основании разработанной сторонними проектными организациями РД)</p>
+                    </div>
+                    <div class="project_card_content_title">
+                        <p class="project_card_content_title_abr">пд</p>
+                        <img src="capls.svg" alt="" class="project_card_content_title_img_on">
+                        <img src="caplya.svg" alt="" class="project_card_content_title_img_off">
+                        <p class="project_card_content_title_body">Комплекс переработки нефтяных остатков на ООО «ЛУКОЙЛ Нижегороднефтеоргсинтез» (корректировка ПД на основании разработанной сторонними проектными организациями РД)</p>
+                    </div>
+                </div>
+                <div class="project_card_items_btns">
+                    <a class="project_card_items_btns_download">
+                        <img src="download.svg" alt="" class=" project_card_items_btns_download_on">
+                        <img src="download_white.svg" alt="" class=" project_card_items_btns_download_off"> Скачать документ
+                    </a>
+                    <a class="project_card_items_btns_photo">
+                        <img src="photo_red.svg" alt="" class="project_card_items_btns_photo_on">
+                        <img src="photo_white.svg" alt="" class="project_card_items_btns_photo_off"> фото
+                    </a>
+                </div>
+            </div>
+            <div class="project_card_items" data-year="2019">
+                <img src="swiper_back_1.jpg" alt="" class="project_card_items_img">
+                <div class="project_card_content_container">
+                    <p class="swiper_card_title">ООО «ЛУКОЙЛ-Нижегороднефтеоргсинтез»</p>
+                    <div class="project_card_content_title">
+                        <p class="project_card_content_title_abr">пд</p>
+                        <img src="capls.svg" alt="" class="project_card_content_title_img_on">
+                        <img src="caplya.svg" alt="" class="project_card_content_title_img_off">
+                        <p class="project_card_content_title_body">Комплекс переработки нефтяных остатков на ООО «ЛУКОЙЛ Нижегороднефтеоргсинтез» (корректировка ПД на основании разработанной сторонними проектными организациями РД)</p>
+                    </div>
+                    <div class="project_card_content_title">
+                        <p class="project_card_content_title_abr">пд</p>
+                        <img src="capls.svg" alt="" class="project_card_content_title_img_on">
+                        <img src="caplya.svg" alt="" class="project_card_content_title_img_off">
+                        <p class="project_card_content_title_body">Комплекс переработки нефтяных остатков на ООО «ЛУКОЙЛ Нижегороднефтеоргсинтез» (корректировка ПД на основании разработанной сторонними проектными организациями РД)</p>
+                    </div>
+                </div>
+                <div class="project_card_items_btns">
+                    <a class="project_card_items_btns_download">
+                        <img src="download.svg" alt="" class=" project_card_items_btns_download_on">
+                        <img src="download_white.svg" alt="" class=" project_card_items_btns_download_off"> Скачать документ
+                    </a>
+                    <a class="project_card_items_btns_photo">
+                        <img src="photo_red.svg" alt="" class="project_card_items_btns_photo_on">
+                        <img src="photo_white.svg" alt="" class="project_card_items_btns_photo_off"> фото
+                    </a>
+                </div>
+            </div>
+            <div class="project_card_items" data-year="2018">
+                <img src="swiper_back_1.jpg" alt="" class="project_card_items_img">
+                <div class="project_card_content_container">
+                    <p class="swiper_card_title">ООО «ЛУКОЙЛ-Нижегороднефтеоргсинтез»</p>
+                    <div class="project_card_content_title">
+                        <p class="project_card_content_title_abr">пд</p>
+                        <img src="capls.svg" alt="" class="project_card_content_title_img_on">
+                        <img src="caplya.svg" alt="" class="project_card_content_title_img_off">
+                        <p class="project_card_content_title_body">Комплекс переработки нефтяных остатков на ООО «ЛУКОЙЛ Нижегороднефтеоргсинтез» (корректировка ПД на основании разработанной сторонними проектными организациями РД)</p>
+                    </div>
+                    <div class="project_card_content_title">
+                        <p class="project_card_content_title_abr">пд</p>
+                        <img src="capls.svg" alt="" class="project_card_content_title_img_on">
+                        <img src="caplya.svg" alt="" class="project_card_content_title_img_off">
+                        <p class="project_card_content_title_body">Комплекс переработки нефтяных остатков на ООО «ЛУКОЙЛ Нижегороднефтеоргсинтез» (корректировка ПД на основании разработанной сторонними проектными организациями РД)</p>
+                    </div>
+                </div>
+                <div class="project_card_items_btns">
+                    <a class="project_card_items_btns_download">
+                        <img src="download.svg" alt="" class=" project_card_items_btns_download_on">
+                        <img src="download_white.svg" alt="" class=" project_card_items_btns_download_off"> Скачать документ
+                    </a>
+                    <a class="project_card_items_btns_photo">
+                        <img src="photo_red.svg" alt="" class="project_card_items_btns_photo_on">
+                        <img src="photo_white.svg" alt="" class="project_card_items_btns_photo_off"> фото
+                    </a>
+                </div>
+            </div>
+            <div class="project_card_items" data-year="2018">
+                <img src="swiper_back_1.jpg" alt="" class="project_card_items_img">
+                <div class="project_card_content_container">
+                    <p class="swiper_card_title">ООО «ЛУКОЙЛ-Нижегороднефтеоргсинтез»</p>
+                    <div class="project_card_content_title">
+                        <p class="project_card_content_title_abr">пд</p>
+                        <img src="capls.svg" alt="" class="project_card_content_title_img_on">
+                        <img src="caplya.svg" alt="" class="project_card_content_title_img_off">
+                        <p class="project_card_content_title_body">Комплекс переработки нефтяных остатков на ООО «ЛУКОЙЛ Нижегороднефтеоргсинтез» (корректировка ПД на основании разработанной сторонними проектными организациями РД)</p>
+                    </div>
+                    <div class="project_card_content_title">
+                        <p class="project_card_content_title_abr">пд</p>
+                        <img src="capls.svg" alt="" class="project_card_content_title_img_on">
+                        <img src="caplya.svg" alt="" class="project_card_content_title_img_off">
+                        <p class="project_card_content_title_body">Комплекс переработки нефтяных остатков на ООО «ЛУКОЙЛ Нижегороднефтеоргсинтез» (корректировка ПД на основании разработанной сторонними проектными организациями РД)</p>
+                    </div>
+                </div>
+                <div class="project_card_items_btns">
+                    <a class="project_card_items_btns_download">
+                        <img src="download.svg" alt="" class=" project_card_items_btns_download_on">
+                        <img src="download_white.svg" alt="" class=" project_card_items_btns_download_off"> Скачать документ
+                    </a>
+                    <a class="project_card_items_btns_photo">
+                        <img src="photo_red.svg" alt="" class="project_card_items_btns_photo_on">
+                        <img src="photo_white.svg" alt="" class="project_card_items_btns_photo_off"> фото
+                    </a>
+                </div>
+            </div>
+            <div class="project_card_items" data-year="2017">
+                <img src="swiper_back_1.jpg" alt="" class="project_card_items_img">
+                <div class="project_card_content_container">
+                    <p class="swiper_card_title">ООО «ЛУКОЙЛ-Нижегороднефтеоргсинтез»</p>
+                    <div class="project_card_content_title">
+                        <p class="project_card_content_title_abr">пд</p>
+                        <img src="capls.svg" alt="" class="project_card_content_title_img_on">
+                        <img src="caplya.svg" alt="" class="project_card_content_title_img_off">
+                        <p class="project_card_content_title_body">Комплекс переработки нефтяных остатков на ООО «ЛУКОЙЛ Нижегороднефтеоргсинтез» (корректировка ПД на основании разработанной сторонними проектными организациями РД)</p>
+                    </div>
+                    <div class="project_card_content_title">
+                        <p class="project_card_content_title_abr">пд</p>
+                        <img src="capls.svg" alt="" class="project_card_content_title_img_on">
+                        <img src="caplya.svg" alt="" class="project_card_content_title_img_off">
+                        <p class="project_card_content_title_body">Комплекс переработки нефтяных остатков на ООО «ЛУКОЙЛ Нижегороднефтеоргсинтез» (корректировка ПД на основании разработанной сторонними проектными организациями РД)</p>
+                    </div>
+                </div>
+                <div class="project_card_items_btns">
+                    <a class="project_card_items_btns_download">
+                        <img src="download.svg" alt="" class=" project_card_items_btns_download_on">
+                        <img src="download_white.svg" alt="" class=" project_card_items_btns_download_off"> Скачать документ
+                    </a>
+                    <a class="project_card_items_btns_photo">
+                        <img src="photo_red.svg" alt="" class="project_card_items_btns_photo_on">
+                        <img src="photo_white.svg" alt="" class="project_card_items_btns_photo_off"> фото
+                    </a>
+                </div>
+            </div>
+            <div class="project_card_items" data-year="2017">
+                <img src="swiper_back_1.jpg" alt="" class="project_card_items_img">
+                <div class="project_card_content_container">
+                    <p class="swiper_card_title">ООО «ЛУКОЙЛ-Нижегороднефтеоргсинтез»</p>
+                    <div class="project_card_content_title">
+                        <p class="project_card_content_title_abr">пд</p>
+                        <img src="capls.svg" alt="" class="project_card_content_title_img_on">
+                        <img src="caplya.svg" alt="" class="project_card_content_title_img_off">
+                        <p class="project_card_content_title_body">Комплекс переработки нефтяных остатков на ООО «ЛУКОЙЛ Нижегороднефтеоргсинтез» (корректировка ПД на основании разработанной сторонними проектными организациями РД)</p>
+                    </div>
+                    <div class="project_card_content_title">
+                        <p class="project_card_content_title_abr">пд</p>
+                        <img src="capls.svg" alt="" class="project_card_content_title_img_on">
+                        <img src="caplya.svg" alt="" class="project_card_content_title_img_off">
+                        <p class="project_card_content_title_body">Комплекс переработки нефтяных остатков на ООО «ЛУКОЙЛ Нижегороднефтеоргсинтез» (корректировка ПД на основании разработанной сторонними проектными организациями РД)</p>
+                    </div>
+                </div>
+                <div class="project_card_items_btns">
+                    <a class="project_card_items_btns_download">
+                        <img src="download.svg" alt="" class=" project_card_items_btns_download_on">
+                        <img src="download_white.svg" alt="" class=" project_card_items_btns_download_off"> Скачать документ
+                    </a>
+                    <a class="project_card_items_btns_photo">
+                        <img src="photo_red.svg" alt="" class="project_card_items_btns_photo_on">
+                        <img src="photo_white.svg" alt="" class="project_card_items_btns_photo_off"> фото
+                    </a>
+                </div>
+            </div>
+            <div class="project_card_items" data-year="2017">
+                <img src="swiper_back_1.jpg" alt="" class="project_card_items_img">
+                <div class="project_card_content_container">
+                    <p class="swiper_card_title">ООО «ЛУКОЙЛ-Нижегороднефтеоргсинтез»</p>
+                    <div class="project_card_content_title">
+                        <p class="project_card_content_title_abr">пд</p>
+                        <img src="capls.svg" alt="" class="project_card_content_title_img_on">
+                        <img src="caplya.svg" alt="" class="project_card_content_title_img_off">
+                        <p class="project_card_content_title_body">Комплекс переработки нефтяных остатков на ООО «ЛУКОЙЛ Нижегороднефтеоргсинтез» (корректировка ПД на основании разработанной сторонними проектными организациями РД)</p>
+                    </div>
+                    <div class="project_card_content_title">
+                        <p class="project_card_content_title_abr">пд</p>
+                        <img src="capls.svg" alt="" class="project_card_content_title_img_on">
+                        <img src="caplya.svg" alt="" class="project_card_content_title_img_off">
+                        <p class="project_card_content_title_body">Комплекс переработки нефтяных остатков на ООО «ЛУКОЙЛ Нижегороднефтеоргсинтез» (корректировка ПД на основании разработанной сторонними проектными организациями РД)</p>
+                    </div>
+                </div>
+                <div class="project_card_items_btns">
+                    <a class="project_card_items_btns_download">
+                        <img src="download.svg" alt="" class=" project_card_items_btns_download_on">
+                        <img src="download_white.svg" alt="" class=" project_card_items_btns_download_off"> Скачать документ
+                    </a>
+                    <a class="project_card_items_btns_photo">
+                        <img src="photo_red.svg" alt="" class="project_card_items_btns_photo_on">
+                        <img src="photo_white.svg" alt="" class="project_card_items_btns_photo_off"> фото
+                    </a>
+                </div>
+            </div>
+            <div class="project_card_items" data-year="2017">
+                <img src="swiper_back_1.jpg" alt="" class="project_card_items_img">
+                <div class="project_card_content_container">
+                    <p class="swiper_card_title">ООО «ЛУКОЙЛ-Нижегороднефтеоргсинтез»</p>
+                    <div class="project_card_content_title">
+                        <p class="project_card_content_title_abr">пд</p>
+                        <img src="capls.svg" alt="" class="project_card_content_title_img_on">
+                        <img src="caplya.svg" alt="" class="project_card_content_title_img_off">
+                        <p class="project_card_content_title_body">Комплекс переработки нефтяных остатков на ООО «ЛУКОЙЛ Нижегороднефтеоргсинтез» (корректировка ПД на основании разработанной сторонними проектными организациями РД)</p>
+                    </div>
+                    <div class="project_card_content_title">
+                        <p class="project_card_content_title_abr">пд</p>
+                        <img src="capls.svg" alt="" class="project_card_content_title_img_on">
+                        <img src="caplya.svg" alt="" class="project_card_content_title_img_off">
+                        <p class="project_card_content_title_body">Комплекс переработки нефтяных остатков на ООО «ЛУКОЙЛ Нижегороднефтеоргсинтез» (корректировка ПД на основании разработанной сторонними проектными организациями РД)</p>
+                    </div>
+                </div>
+                <div class="project_card_items_btns">
+                    <a class="project_card_items_btns_download">
+                        <img src="download.svg" alt="" class=" project_card_items_btns_download_on">
+                        <img src="download_white.svg" alt="" class=" project_card_items_btns_download_off"> Скачать документ
+                    </a>
+                    <a class="project_card_items_btns_photo">
+                        <img src="photo_red.svg" alt="" class="project_card_items_btns_photo_on">
+                        <img src="photo_white.svg" alt="" class="project_card_items_btns_photo_off"> фото
+                    </a>
+                </div>
+            </div>
+            <div class="project_card_items" data-year="2016">
+                <img src="swiper_back_1.jpg" alt="" class="project_card_items_img">
+                <div class="project_card_content_container">
+                    <p class="swiper_card_title">ООО «ЛУКОЙЛ-Нижегороднефтеоргсинтез»</p>
+                    <div class="project_card_content_title">
+                        <p class="project_card_content_title_abr">пд</p>
+                        <img src="capls.svg" alt="" class="project_card_content_title_img_on">
+                        <img src="caplya.svg" alt="" class="project_card_content_title_img_off">
+                        <p class="project_card_content_title_body">Комплекс переработки нефтяных остатков на ООО «ЛУКОЙЛ Нижегороднефтеоргсинтез» (корректировка ПД на основании разработанной сторонними проектными организациями РД)</p>
+                    </div>
+                    <div class="project_card_content_title">
+                        <p class="project_card_content_title_abr">пд</p>
+                        <img src="capls.svg" alt="" class="project_card_content_title_img_on">
+                        <img src="caplya.svg" alt="" class="project_card_content_title_img_off">
+                        <p class="project_card_content_title_body">Комплекс переработки нефтяных остатков на ООО «ЛУКОЙЛ Нижегороднефтеоргсинтез» (корректировка ПД на основании разработанной сторонними проектными организациями РД)</p>
+                    </div>
+                </div>
+                <div class="project_card_items_btns">
+                    <a class="project_card_items_btns_download">
+                        <img src="download.svg" alt="" class=" project_card_items_btns_download_on">
+                        <img src="download_white.svg" alt="" class=" project_card_items_btns_download_off"> Скачать документ
+                    </a>
+                    <a class="project_card_items_btns_photo">
+                        <img src="photo_red.svg" alt="" class="project_card_items_btns_photo_on">
+                        <img src="photo_white.svg" alt="" class="project_card_items_btns_photo_off"> фото
+                    </a>
+                </div>
+            </div>
+            <div class="project_card_items" data-year="2016">
+                <img src="swiper_back_1.jpg" alt="" class="project_card_items_img">
+                <div class="project_card_content_container">
+                    <p class="swiper_card_title">ООО «ЛУКОЙЛ-Нижегороднефтеоргсинтез»</p>
+                    <div class="project_card_content_title">
+                        <p class="project_card_content_title_abr">пд</p>
+                        <img src="capls.svg" alt="" class="project_card_content_title_img_on">
+                        <img src="caplya.svg" alt="" class="project_card_content_title_img_off">
+                        <p class="project_card_content_title_body">Комплекс переработки нефтяных остатков на ООО «ЛУКОЙЛ Нижегороднефтеоргсинтез» (корректировка ПД на основании разработанной сторонними проектными организациями РД)</p>
+                    </div>
+                    <div class="project_card_content_title">
+                        <p class="project_card_content_title_abr">пд</p>
+                        <img src="capls.svg" alt="" class="project_card_content_title_img_on">
+                        <img src="caplya.svg" alt="" class="project_card_content_title_img_off">
+                        <p class="project_card_content_title_body">Комплекс переработки нефтяных остатков на ООО «ЛУКОЙЛ Нижегороднефтеоргсинтез» (корректировка ПД на основании разработанной сторонними проектными организациями РД)</p>
+                    </div>
+                </div>
+                <div class="project_card_items_btns">
+                    <a class="project_card_items_btns_download">
+                        <img src="download.svg" alt="" class=" project_card_items_btns_download_on">
+                        <img src="download_white.svg" alt="" class=" project_card_items_btns_download_off"> Скачать документ
+                    </a>
+                    <a class="project_card_items_btns_photo">
+                        <img src="photo_red.svg" alt="" class="project_card_items_btns_photo_on">
+                        <img src="photo_white.svg" alt="" class="project_card_items_btns_photo_off"> фото
+                    </a>
+                </div>
+            </div>
+            <div class="project_card_items" data-year="2016">
+                <img src="swiper_back_1.jpg" alt="" class="project_card_items_img">
+                <div class="project_card_content_container">
+                    <p class="swiper_card_title">ООО «ЛУКОЙЛ-Нижегороднефтеоргсинтез»</p>
+                    <div class="project_card_content_title">
+                        <p class="project_card_content_title_abr">пд</p>
+                        <img src="capls.svg" alt="" class="project_card_content_title_img_on">
+                        <img src="caplya.svg" alt="" class="project_card_content_title_img_off">
+                        <p class="project_card_content_title_body">Комплекс переработки нефтяных остатков на ООО «ЛУКОЙЛ Нижегороднефтеоргсинтез» (корректировка ПД на основании разработанной сторонними проектными организациями РД)</p>
+                    </div>
+                    <div class="project_card_content_title">
+                        <p class="project_card_content_title_abr">пд</p>
+                        <img src="capls.svg" alt="" class="project_card_content_title_img_on">
+                        <img src="caplya.svg" alt="" class="project_card_content_title_img_off">
+                        <p class="project_card_content_title_body">Комплекс переработки нефтяных остатков на ООО «ЛУКОЙЛ Нижегороднефтеоргсинтез» (корректировка ПД на основании разработанной сторонними проектными организациями РД)</p>
+                    </div>
+                </div>
+                <div class="project_card_items_btns">
+                    <a class="project_card_items_btns_download">
+                        <img src="download.svg" alt="" class=" project_card_items_btns_download_on">
+                        <img src="download_white.svg" alt="" class=" project_card_items_btns_download_off"> Скачать документ
+                    </a>
+                    <a class="project_card_items_btns_photo">
+                        <img src="photo_red.svg" alt="" class="project_card_items_btns_photo_on">
+                        <img src="photo_white.svg" alt="" class="project_card_items_btns_photo_off"> фото
+                    </a>
+                </div>
+            </div>
+            <div class="project_card_items" data-year="2016">
+                <img src="swiper_back_1.jpg" alt="" class="project_card_items_img">
+                <div class="project_card_content_container">
+                    <p class="swiper_card_title">ООО «ЛУКОЙЛ-Нижегороднефтеоргсинтез»</p>
+                    <div class="project_card_content_title">
+                        <p class="project_card_content_title_abr">пд</p>
+                        <img src="capls.svg" alt="" class="project_card_content_title_img_on">
+                        <img src="caplya.svg" alt="" class="project_card_content_title_img_off">
+                        <p class="project_card_content_title_body">Комплекс переработки нефтяных остатков на ООО «ЛУКОЙЛ Нижегороднефтеоргсинтез» (корректировка ПД на основании разработанной сторонними проектными организациями РД)</p>
+                    </div>
+                    <div class="project_card_content_title">
+                        <p class="project_card_content_title_abr">пд</p>
+                        <img src="capls.svg" alt="" class="project_card_content_title_img_on">
+                        <img src="caplya.svg" alt="" class="project_card_content_title_img_off">
+                        <p class="project_card_content_title_body">Комплекс переработки нефтяных остатков на ООО «ЛУКОЙЛ Нижегороднефтеоргсинтез» (корректировка ПД на основании разработанной сторонними проектными организациями РД)</p>
+                    </div>
+                </div>
+                <div class="project_card_items_btns">
+                    <a class="project_card_items_btns_download">
+                        <img src="download.svg" alt="" class=" project_card_items_btns_download_on">
+                        <img src="download_white.svg" alt="" class=" project_card_items_btns_download_off"> Скачать документ
+                    </a>
+                    <a class="project_card_items_btns_photo">
+                        <img src="photo_red.svg" alt="" class="project_card_items_btns_photo_on">
+                        <img src="photo_white.svg" alt="" class="project_card_items_btns_photo_off"> фото
+                    </a>
+                </div>
+            </div>
+            <div class="project_card_items" data-year="2016">
+                <img src="swiper_back_1.jpg" alt="" class="project_card_items_img">
+                <div class="project_card_content_container">
+                    <p class="swiper_card_title">ООО «ЛУКОЙЛ-Нижегороднефтеоргсинтез»</p>
+                    <div class="project_card_content_title">
+                        <p class="project_card_content_title_abr">пд</p>
+                        <img src="capls.svg" alt="" class="project_card_content_title_img_on">
+                        <img src="caplya.svg" alt="" class="project_card_content_title_img_off">
+                        <p class="project_card_content_title_body">Комплекс переработки нефтяных остатков на ООО «ЛУКОЙЛ Нижегороднефтеоргсинтез» (корректировка ПД на основании разработанной сторонними проектными организациями РД)</p>
+                    </div>
+                    <div class="project_card_content_title">
+                        <p class="project_card_content_title_abr">пд</p>
+                        <img src="capls.svg" alt="" class="project_card_content_title_img_on">
+                        <img src="caplya.svg" alt="" class="project_card_content_title_img_off">
+                        <p class="project_card_content_title_body">Комплекс переработки нефтяных остатков на ООО «ЛУКОЙЛ Нижегороднефтеоргсинтез» (корректировка ПД на основании разработанной сторонними проектными организациями РД)</p>
+                    </div>
+                </div>
+                <div class="project_card_items_btns">
+                    <a class="project_card_items_btns_download">
+                        <img src="download.svg" alt="" class=" project_card_items_btns_download_on">
+                        <img src="download_white.svg" alt="" class=" project_card_items_btns_download_off"> Скачать документ
+                    </a>
+                    <a class="project_card_items_btns_photo">
+                        <img src="photo_red.svg" alt="" class="project_card_items_btns_photo_on">
+                        <img src="photo_white.svg" alt="" class="project_card_items_btns_photo_off"> фото
+                    </a>
+                </div>
+            </div>
+            <div class="project_card_items" data-year="2015">
+                <img src="swiper_back_1.jpg" alt="" class="project_card_items_img">
+                <div class="project_card_content_container">
+                    <p class="swiper_card_title">ООО «ЛУКОЙЛ-Нижегороднефтеоргсинтез»</p>
+                    <div class="project_card_content_title">
+                        <p class="project_card_content_title_abr">пд</p>
+                        <img src="capls.svg" alt="" class="project_card_content_title_img_on">
+                        <img src="caplya.svg" alt="" class="project_card_content_title_img_off">
+                        <p class="project_card_content_title_body">Комплекс переработки нефтяных остатков на ООО «ЛУКОЙЛ Нижегороднефтеоргсинтез» (корректировка ПД на основании разработанной сторонними проектными организациями РД)</p>
+                    </div>
+                    <div class="project_card_content_title">
+                        <p class="project_card_content_title_abr">пд</p>
+                        <img src="capls.svg" alt="" class="project_card_content_title_img_on">
+                        <img src="caplya.svg" alt="" class="project_card_content_title_img_off">
+                        <p class="project_card_content_title_body">Комплекс переработки нефтяных остатков на ООО «ЛУКОЙЛ Нижегороднефтеоргсинтез» (корректировка ПД на основании разработанной сторонними проектными организациями РД)</p>
+                    </div>
+                </div>
+                <div class="project_card_items_btns">
+                    <a class="project_card_items_btns_download">
+                        <img src="download.svg" alt="" class=" project_card_items_btns_download_on">
+                        <img src="download_white.svg" alt="" class=" project_card_items_btns_download_off"> Скачать документ
+                    </a>
+                    <a class="project_card_items_btns_photo">
+                        <img src="photo_red.svg" alt="" class="project_card_items_btns_photo_on">
+                        <img src="photo_white.svg" alt="" class="project_card_items_btns_photo_off"> фото
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="slider.js"></script>
+</body>
+
+</html>

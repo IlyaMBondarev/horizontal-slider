@@ -1,0 +1,17 @@
+body {
+  overflow-x: hidden;
+}
+
+.slider_containers_links_years {
+  display: flex;
+}
+
+.project_card_containers {
+  transition: margin-left 0.6s ease-in-out;
+}
+
+.project_card_items {
+  min-width: 570px;
+}
+
+/*# sourceMappingURL=horizontal-sliders.css.map */
