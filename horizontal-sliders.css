@@ -1,4 +1,4 @@
-body {
+html {
   overflow-x: hidden;
 }
 
@@ -8,10 +8,38 @@ body {
 
 .project_card_containers {
   transition: margin-left 0.6s ease-in-out;
+  -ms-overflow-style: none;
+}
+.project_card_containers::-webkit-scrollbar {
+  width: 0;
 }
 
 .project_card_items {
   min-width: 570px;
+}
+
+.slider_for_cards_current_year {
+  margin-top: 23px;
+  font-size: 28px;
+  color: darkgrey;
+}
+
+.slider_for_cards_horizontal_scrollbar {
+  position: relative;
+  margin-top: 15px;
+  height: 1px;
+  background-color: darkgrey;
+}
+
+.slider_for_cards_horizontal_scrollthumb {
+  position: absolute;
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  transition: left 0.6s ease-in-out;
+  background-color: red;
+  top: -4px;
+  left: -4px;
 }
 
 /*# sourceMappingURL=horizontal-sliders.css.map */

@@ -12,7 +12,13 @@ slidersForCards.forEach(slider => {
     let yearsBtns = slider.querySelectorAll('.link_years');
     let indexOfBeginOfCardsEachYear = [];
     let years = [];
+    let currentYear = slider.querySelector('.slider_for_cards_current_year');
+    let horizontalScrollBar = slider.querySelector('.slider_for_cards_horizontal_scrollbar');
+    let horizontalScrollThumb = slider.querySelector('.slider_for_cards_horizontal_scrollthumb');
+    horizontalScrollBar.style.minWidth = `${visibleWidthOfSlider}px`;
+    horizontalScrollThumb.style.left = `${marginLeftOfSlider * visibleWidthOfSlider / (cards.length * 600 - visibleWidthOfSlider + 100) - 4}px`;
     yearsBtns.forEach(btn => years.push(btn.textContent));
+    currentYear.textContent = `${yearsBtns[indexOfActiveYear].textContent}`;
     let j = 0;
     for (let i = 0; i < cards.length; i++) {
         if (cards[i].dataset.year === years[j]) {
@@ -32,9 +38,11 @@ slidersForCards.forEach(slider => {
                     indexOfLeftSlide = cards.length - rightBorderOfSlider - 1;
                 }
                 cardsContainer.style.marginLeft = `${-marginLeftOfSlider}px`;
+                horizontalScrollThumb.style.left = `${marginLeftOfSlider * visibleWidthOfSlider / (cards.length * 600 - visibleWidthOfSlider + 100) - 4}px`;
                 yearsBtns[i].classList.add('active_years');
                 yearsBtns[indexOfActiveYear].classList.remove('active_years');
                 indexOfActiveYear = i;
+                currentYear.textContent = `${yearsBtns[indexOfActiveYear].textContent}`;
                 if (indexOfActiveYear === 0) {
                     arrowLeft.classList.add('swiper-button-disabled');
                 } else {
@@ -57,12 +65,14 @@ slidersForCards.forEach(slider => {
                 marginLeftOfSlider = cards.length * 600 - visibleWidthOfSlider + 100;
             }
             cardsContainer.style.marginLeft = `${-marginLeftOfSlider}px`;
+            horizontalScrollThumb.style.left = `${marginLeftOfSlider * visibleWidthOfSlider / (cards.length * 600 - visibleWidthOfSlider + 100) - 4}px`;
             if (arrowRight.classList.contains('swiper-button-disabled')) {
                 arrowRight.classList.remove('swiper-button-disabled');
             }
             if (marginLeftOfSlider + visibleWidthOfSlider - 80 < indexOfBeginOfCardsEachYear[indexOfActiveYear] * 600) {
                 yearsBtns[indexOfActiveYear].classList.remove('active_years');
                 indexOfActiveYear--;
+                currentYear.textContent = `${yearsBtns[indexOfActiveYear].textContent}`;
                 yearsBtns[indexOfActiveYear].classList.add('active_years');
             }
         }
@@ -78,12 +88,14 @@ slidersForCards.forEach(slider => {
                 marginLeftOfSlider = cards.length * 600 - visibleWidthOfSlider + 100;
             }
             cardsContainer.style.marginLeft = `${-marginLeftOfSlider}px`;
+            horizontalScrollThumb.style.left = `${marginLeftOfSlider * visibleWidthOfSlider / (cards.length * 600 - visibleWidthOfSlider + 100) - 4}px`;
             if (arrowLeft.classList.contains('swiper-button-disabled')) {
                 arrowLeft.classList.remove('swiper-button-disabled');
             }
             if (marginLeftOfSlider + visibleWidthOfSlider - 100 > indexOfBeginOfCardsEachYear[indexOfActiveYear + 1] * 600) {
                 yearsBtns[indexOfActiveYear].classList.remove('active_years');
                 indexOfActiveYear++;
+                currentYear.textContent = `${yearsBtns[indexOfActiveYear].textContent}`;
                 yearsBtns[indexOfActiveYear].classList.add('active_years');
             }
         }
@@ -98,12 +110,14 @@ slidersForCards.forEach(slider => {
                 marginLeftOfSlider = cards.length * 600 - visibleWidthOfSlider + 100;
             }
             cardsContainer.style.marginLeft = `${-marginLeftOfSlider}px`;
+            horizontalScrollThumb.style.left = `${marginLeftOfSlider * visibleWidthOfSlider / (cards.length * 600 - visibleWidthOfSlider + 100) - 4}px`;
             if (arrowRight.classList.contains('swiper-button-disabled')) {
                 arrowRight.classList.remove('swiper-button-disabled');
             }
             if (marginLeftOfSlider + visibleWidthOfSlider - 80 < indexOfBeginOfCardsEachYear[indexOfActiveYear] * 600) {
                 yearsBtns[indexOfActiveYear].classList.remove('active_years');
                 indexOfActiveYear--;
+                currentYear.textContent = `${yearsBtns[indexOfActiveYear].textContent}`;
                 yearsBtns[indexOfActiveYear].classList.add('active_years');
             }
             if (indexOfLeftSlide === 0) {
@@ -116,12 +130,14 @@ slidersForCards.forEach(slider => {
                 marginLeftOfSlider = cards.length * 600 - visibleWidthOfSlider + 100;
             }
             cardsContainer.style.marginLeft = `${-marginLeftOfSlider}px`;
+            horizontalScrollThumb.style.left = `${marginLeftOfSlider * visibleWidthOfSlider / (cards.length * 600 - visibleWidthOfSlider + 100) - 4}px`;
             if (arrowLeft.classList.contains('swiper-button-disabled')) {
                 arrowLeft.classList.remove('swiper-button-disabled');
             }
             if (marginLeftOfSlider + visibleWidthOfSlider - 100 > indexOfBeginOfCardsEachYear[indexOfActiveYear + 1] * 600) {
                 yearsBtns[indexOfActiveYear].classList.remove('active_years');
                 indexOfActiveYear++;
+                currentYear.textContent = `${yearsBtns[indexOfActiveYear].textContent}`;
                 yearsBtns[indexOfActiveYear].classList.add('active_years');
             }
             if (indexOfLeftSlide >= cards.length - rightBorderOfSlider) {
