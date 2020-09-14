@@ -30,7 +30,7 @@ slidersForCards.forEach(slider => {
                     marginLeftOfSlider = cards.length * 600 - visibleWidthOfSlider + 100;
                 }
                 if (indexOfLeftSlide >= cards.length - rightBorderOfSlider) {
-                    indexOfLeftSlide = cards.length - rightBorderOfSlider;
+                    indexOfLeftSlide = cards.length - rightBorderOfSlider - 1;
                 }
                 cardsContainer.style.marginLeft = `${-marginLeftOfSlider}px`;
                 yearsBtns[i].classList.add('active_years');
