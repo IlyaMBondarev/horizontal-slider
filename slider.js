@@ -1,7 +1,6 @@
 let clientWidth = document.documentElement.clientWidth;
 let slidersForCards = document.querySelectorAll('.slider_for_cards');
 
-
 slidersForCards.forEach(slider => {
     let visibleWidthOfSlider = clientWidth - slider.offsetLeft;
     let rightBorderOfSlider = Math.floor(visibleWidthOfSlider / 600) - 1;
@@ -27,6 +26,12 @@ slidersForCards.forEach(slider => {
             if (i !== indexOfActiveYear) {
                 indexOfLeftSlide = indexOfBeginOfCardsEachYear[i];
                 marginLeftOfSlider = indexOfLeftSlide * 600;
+                if (marginLeftOfSlider + visibleWidthOfSlider - 100 > cards.length * 600) {
+                    marginLeftOfSlider = cards.length * 600 - visibleWidthOfSlider + 100;
+                }
+                if (indexOfLeftSlide >= cards.length - rightBorderOfSlider) {
+                    indexOfLeftSlide = cards.length - rightBorderOfSlider;
+                }
                 cardsContainer.style.marginLeft = `${-marginLeftOfSlider}px`;
                 yearsBtns[i].classList.add('active_years');
                 yearsBtns[indexOfActiveYear].classList.remove('active_years');
